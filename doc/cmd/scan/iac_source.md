@@ -3,6 +3,17 @@
 Currently, driftctl only supports reading IaC from a Terraform state.
 We are investigating to support the Terraform code as well, as a state does not represent an intention.
 
+ℹ️ Multiples states could be read by passing multiples flags `--from`
+
+Example:
+```shell
+# I want to read a local state and a state stored in an S3 bucket :
+driftctl scan \
+   --from tfstate+s3://statebucketdriftctl/terraform.tfstate \
+   --from tfstate://terraform_toto.tfstate
+```
+
+
 ## Supported IaC sources
 
 * Terraform state
